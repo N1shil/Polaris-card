@@ -18,6 +18,13 @@
     }
     polaris-chip {
       margin: 16px;
+      --polaris-chip-background-color: azure;
+    }
+    a {
+      margin: 16px;
+      color: red;
+      background-color: azure;
+      padding: 50px;
     }
   </style>
   <title>polaris-chip / my-card</title>
@@ -31,7 +38,10 @@
   <polaris-chip title="Sports are the only thing that matter"></polaris-chip>
   <polaris-chip title="Grants and donations"></polaris-chip>
 
+<a href="https://psu.edu/" target="_blank">PSU</a>
+
   <h1>my-card</h1>
+
   <my-card></my-card>
 
   <!-- this is what is bringing in the definition for this tag -->
@@ -39,4 +49,40 @@
   <script type="module" src="./src/my-card.js"></script>
 </body>
 
+<my-card 
+    title="Perfect Boiled Egg" 
+    subtitle="Learn how to make the perfect boiled egg."
+    image="https://www.ambitiouskitchen.com/wp-content/uploads/2021/09/Perfect-Hardboiled-Eggs-8.jpg"
+    link="https://hax.psu.edu">
+  </my-card>
+
+  <my-card 
+    title="Sunny Side Up" 
+    subtitle="The perfect sunny side up egg."
+    image="https://blog.suvie.com/wp-content/uploads/2020/02/Sunnyside-egg.jpg"
+    link="https://www.simplyrecipes.com/recipes/how_to_make_sunny_side_up_eggs/">
+  </my-card>
+
+  <my-card 
+    title="Scrambled Eggs" 
+    subtitle="Make soft and fluffy scrambled eggs."
+    image="https://static01.nyt.com/images/2021/02/24/dining/19Kenji1/19Kenji1-mediumSquareAt3X-v2.jpg"
+    link="https://www.foodnetwork.com/recipes/perfect-scrambled-eggs-recipe-2131134">
+  </my-card>
+
+  <my-card 
+    title="Poached Egg" 
+    subtitle="How to make a perfect poached egg."
+    image="https://kristineskitchenblog.com/wp-content/uploads/2023/03/perfect-poached-eggs-03.jpg"
+    link="https://www.downshiftology.com/recipes/how-to-poach-an-egg/">
+  </my-card>
+
+  <my-card 
+    title="Deviled Eggs" 
+    subtitle="A party favorite with a spicy twist."
+    image="https://www.southernliving.com/thmb/labCowdkpolHvrLmw--CavwK4No=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Deviled_Eggs_013_preview_scale_100_ppi_150_quality_100-272aad60d97447e997cedf84715eadb7.jpg"
+    link="https://www.simplyrecipes.com/recipes/deviled_eggs/">
+  </my-card>
+
+</body>
 </html>

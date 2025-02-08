@@ -14,7 +14,10 @@ export class MyCard extends LitElement {
 
   constructor() {
     super();
-    this.title = "My card";
+    this.title = "Perfect Boiled Eggs";
+    this.subtitle = "Learn how to make the perfect boiled egg with this simple step-by-step recipe.";
+    this.image = "https://www.ambitiouskitchen.com/wp-content/uploads/2021/09/Perfect-Hardboiled-Eggs-8.jpg";
+    this.link = "https://hax.psu.edu";
   }
 
   static get styles() {
@@ -22,16 +25,64 @@ export class MyCard extends LitElement {
       :host {
         display: block;
       }
+      .card {
+        width: 400px;
+        border: 1px solid #ccc;
+        margin: 16px auto;
+        padding: 16px;
+        text-align: center;
+        background-color: #f5f5dc;
+        border-radius: 8px;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px 8px 0 0;
+      }
+      h2 {
+        font-size: 20px;
+        margin: 16px 0;
+        color: #333;
+      }
+      p {
+        font-size: 14px;
+        margin: 8px 0;
+        color: #555;
+      }
+      a {
+        display: inline-block;
+        padding: 12px 20px;
+        margin: 5px;
+        text-decoration: none;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      a:hover {
+        background-color: #45a049;
+      }
     `;
   }
 
   render() {
-    return html`<div>${this.title}</div>`;
+    return html`
+      <section class="card">
+        <img src="${this.image}" alt="${this.title}">
+        <h2>${this.title}</h2>
+        <p>${this.subtitle}</p>
+        <a href="${this.link}" target="_blank">Details</a>
+      </section>
+    `;
   }
 
   static get properties() {
     return {
       title: { type: String },
+      subtitle: { type: String },
+      image: { type: String },
+      link: { type: String }
     };
   }
 }
