@@ -16,10 +16,12 @@
       font-family: sans-serif;
       background-color: #ededed;
     }
+
     polaris-chip {
       margin: 16px;
       --polaris-chip-background-color: azure;
     }
+
     a {
       margin: 16px;
       color: red;
@@ -32,57 +34,71 @@
 
 <body>
   <h1>polaris-chip</h1>
-  <!-- this is going to do whatever the tag's defaults are -->
+
   <polaris-chip title="stuff of Record" link="https://psu.edu/"></polaris-chip>
   <polaris-chip title="Faculty and Staff"></polaris-chip>
   <polaris-chip title="Sports are the only thing that matter"></polaris-chip>
   <polaris-chip title="Grants and donations"></polaris-chip>
 
-<a href="https://psu.edu/" target="_blank">PSU</a>
+  <a href="https://psu.edu/" target="_blank">PSU</a>
 
   <h1>my-card</h1>
 
-  <my-card></my-card>
+  <button id="toggle">Toggle</button>
 
-  <!-- this is what is bringing in the definition for this tag -->
-  <script type="module" src="./src/polaris-chip.js"></script>
-  <script type="module" src="./src/my-card.js"></script>
-</body>
+  <script>
+    const button = document.querySelector('#toggle');
+    button.addEventListener('click', () => {
+      document.querySelectorAll('my-card').forEach(myCard => {
+        const currentState = myCard.fancy;
+        myCard.fancy = !currentState; 
+        myCard.setAttribute('fancy', !currentState); // Ensures reflection works
+        myCard.shadowRoot.querySelector('details').open = !currentState; // Toggle details too
+      });
+    });
+  </script>
 
-<my-card 
+  <my-card 
+    fancy
     title="Perfect Boiled Egg" 
-    subtitle="Learn how to make the perfect boiled egg."
     image="https://www.ambitiouskitchen.com/wp-content/uploads/2021/09/Perfect-Hardboiled-Eggs-8.jpg"
     link="https://hax.psu.edu">
+    <p>Learn how to make the perfect boiled egg.</p>
   </my-card>
 
   <my-card 
+    fancy
     title="Sunny Side Up" 
-    subtitle="The perfect sunny side up egg."
     image="https://blog.suvie.com/wp-content/uploads/2020/02/Sunnyside-egg.jpg"
     link="https://www.simplyrecipes.com/recipes/how_to_make_sunny_side_up_eggs/">
+    <p>The perfect sunny side up egg.</p>
   </my-card>
 
   <my-card 
+    fancy
     title="Scrambled Eggs" 
-    subtitle="Make soft and fluffy scrambled eggs."
     image="https://static01.nyt.com/images/2021/02/24/dining/19Kenji1/19Kenji1-mediumSquareAt3X-v2.jpg"
     link="https://www.foodnetwork.com/recipes/perfect-scrambled-eggs-recipe-2131134">
+    <p>Make soft and fluffy scrambled eggs.</p>
   </my-card>
 
-  <my-card 
+  <my-card
+    fancy
     title="Poached Egg" 
-    subtitle="How to make a perfect poached egg."
     image="https://kristineskitchenblog.com/wp-content/uploads/2023/03/perfect-poached-eggs-03.jpg"
     link="https://www.downshiftology.com/recipes/how-to-poach-an-egg/">
+    <p>How to make a perfect poached egg.</p>
   </my-card>
 
   <my-card 
+    fancy
     title="Deviled Eggs" 
-    subtitle="A party favorite with a spicy twist."
     image="https://www.southernliving.com/thmb/labCowdkpolHvrLmw--CavwK4No=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Deviled_Eggs_013_preview_scale_100_ppi_150_quality_100-272aad60d97447e997cedf84715eadb7.jpg"
     link="https://www.simplyrecipes.com/recipes/deviled_eggs/">
+    <p>A party favorite with a spicy twist.</p>
   </my-card>
 
+  <script type="module" src="./src/polaris-chip.js"></script>
+  <script type="module" src="./src/my-card.js"></script>
 </body>
 </html>
